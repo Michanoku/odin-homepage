@@ -8,4 +8,42 @@
   margin: 0;
 }
 
+body {
+  overflow-x: hidden;
+}
 
+header {
+  position: relative;
+  background-color: white;
+  height: 90vh;
+  width: 100%;
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: skyblue;
+  height: 70vh;
+  width: 100%;
+  transform-origin: left top;
+  transform: rotate(-10deg) scaleX(2) translateX(-20vw);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+main {
+  background-color: green;
+}
+
+footer {
+  background-color: yellow;
+}
+
+/*Tablet Sizes*/
+@media screen and (min-width: 576px) and (max-width: 991px) {
+}
+
+/*Desktop Sizes*/
+@media screen and (min-width: 992px) {
+}

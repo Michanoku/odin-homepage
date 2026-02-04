@@ -26,6 +26,7 @@ header {
   height: 100svh;
   max-height: 100svh;
   width: 100vw;
+  overflow-x: hidden;
 }
 
 .header-overlay {
@@ -34,8 +35,6 @@ header {
   left: 0;
   z-index: 2;
   background-color: rgb(27, 163, 218);
-  height: 100svh;
-  max-height: 100svh;
   width: 130vw;
   transform-origin: left bottom;
   transform: rotate(-10deg);
@@ -54,45 +53,8 @@ header {
 
 .content-container {
   position: absolute;
-  min-height: calc(100svh - 10rem);
-  max-height: calc(100svh - 10rem);
-  min-width: calc(100vw - 6rem);
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%) translateX(-50%);
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-}
-
-.header-text {
-  display: inline;
-  display: grid;
-  grid-template-rows: 1fr 2fr 1fr;
-  grid-template-areas: 'title' 'body' 'icons';
-  padding: 2rem 2rem;
-  min-height: calc(100svh - 10rem);
-  max-height: calc(100svh - 10rem);
-}
-
-.text-title {
-  grid-area: title;
-  font-size: 2rem;
-}
-
-.text-body {
-  grid-area: body;
-  font-size: 1.125rem;
-  text-align: start;
-  line-height: 1.5;
-  max-width: 66ch;
-}
-
-.text-icons {
-  grid-area: icons;
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  gap: 1rem;
 }
 
 .text-icons > a {
@@ -103,11 +65,7 @@ header {
   position: relative;
   overflow: hidden;
   float: left;
-  max-height: calc(100svh - 5rem);
-  min-height: calc(100svh - 5rem);
   background-color: black;
-  width: calc(50vw - 6rem);
-  margin-top: -2.5rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   background-image: url("img/header_small.jpg");
   background-size: cover;
@@ -139,13 +97,137 @@ footer {
 
 /*Tablet Sizes*/
 @media screen and (min-width: 576px) and (max-width: 991px) {
+  .header-overlay {
+    height: 40svh;
+    max-height: 40svh;
+  }
+  
+  .content-container {
+    min-width: calc(100vw - 10rem);
+    margin-top: 8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
 
+  .header-picture-container {
+    margin-top: -5rem;
+    margin-left: -2.5rem;
+    margin-right: 1rem;
+    width: calc(50vw - 5rem);
+    max-width: calc(50vw - 5rem);
+    height: 55vw;
+    max-height: 55vw;
+    background-image: url("img/header_big.jpg");
+  }
+
+  .header-name {
+    display: none;
+  }
+
+  .header-text {
+    padding: 2rem 2rem;
+  }
+
+  .text-name {
+    position: absolute;
+    right: 2.5rem;
+    top: 0;
+    transform: translateY(-4.5rem) scale(1.5);
+    transform-origin: center;
+
+    font-size: clamp(2rem, 1.75rem + 2vw, 4rem);
+    color: white;
+    text-shadow:
+      0 0 0.25rem rgba(0, 0, 0, 1),
+      0 0 0.75rem rgba(0, 0, 0, 0.7),
+      0 0 1.5rem rgba(0, 0, 0, 0.4);
+    -webkit-text-stroke: 0.4px rgba(0, 0, 0, 0.4);
+
+    z-index: 6;
+    white-space: nowrap;
+  }
+
+  .text-title {
+    font-size: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .text-body {
+    font-size: 1.125rem;
+    text-align: start;
+    line-height: 1.5;
+    max-width: 66ch;
+    margin-bottom: 3rem;
+  }
+
+  .text-icons {
+    display: none;
+  }
 }
 
 /*Desktop Sizes*/
 @media screen and (min-width: 992px) {
+
+  .header-overlay {
+    height: 100svh;
+    max-height: 100svh;
+  }
+
+    
+  .content-container {
+    min-height: calc(100svh - 10rem);
+    max-height: calc(100svh - 10rem);
+    min-width: calc(100vw - 6rem);
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+  }
+
   .header-picture-container {
+    max-height: calc(100svh - 5rem);
+    min-height: calc(100svh - 5rem);
+    background-color: black;
+    width: calc(50vw - 6rem);
+    margin-top: -2.5rem;
     background-image: url("img/header_big.jpg");
+  }
+
+  .header-text {
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-areas: 'title' 'body' 'icons';
+    padding: 2rem 2rem;
+    min-height: calc(100svh - 10rem);
+    max-height: calc(100svh - 10rem);
+  }
+
+  .text-name {
+    display: none;
+  }
+
+  .text-title {
+    grid-area: title;
+    font-size: 2rem;
+  }
+
+  .text-body {
+    grid-area: body;
+    font-size: 1.125rem;
+    text-align: start;
+    line-height: 1.5;
+    max-width: 66ch;
+  }
+
+  .text-icons {
+    grid-area: icons;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 1rem;
   }
 
 }

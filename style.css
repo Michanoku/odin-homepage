@@ -1,5 +1,13 @@
+@font-face {
+    font-family: 'robotoregular';
+    src:  url('font/Roboto-Regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
   font-size: 16px;
+  font-family: 'robotoregular', 'Courier New', Courier, monospace;
 }
 
 * {
@@ -15,8 +23,9 @@ body {
 header {
   position: relative;
   background-color: white;
-  height: 90vh;
-  width: 100%;
+  height: 100svh;
+  max-height: 100svh;
+  width: 100vw;
 }
 
 .header-overlay {
@@ -24,12 +33,100 @@ header {
   top: 0;
   left: 0;
   z-index: 2;
-  background-color: skyblue;
-  height: 70vh;
-  width: 100%;
-  transform-origin: left top;
-  transform: rotate(-10deg) scaleX(2) translateX(-20vw);
+  background-color: rgb(27, 163, 218);
+  height: 100svh;
+  max-height: 100svh;
+  width: 130vw;
+  transform-origin: left bottom;
+  transform: rotate(-10deg);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.header-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  height: 100svh;
+  max-height: 100svh;
+  width: 100vw;
+}
+
+.content-container {
+  position: absolute;
+  min-height: calc(100svh - 10rem);
+  max-height: calc(100svh - 10rem);
+  min-width: calc(100vw - 6rem);
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.header-text {
+  display: inline;
+  display: grid;
+  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-areas: 'title' 'body' 'icons';
+  padding: 2rem 2rem;
+  min-height: calc(100svh - 10rem);
+  max-height: calc(100svh - 10rem);
+}
+
+.text-title {
+  grid-area: title;
+  font-size: 2rem;
+}
+
+.text-body {
+  grid-area: body;
+  font-size: 1.125rem;
+  text-align: start;
+  line-height: 1.5;
+  max-width: 66ch;
+}
+
+.text-icons {
+  grid-area: icons;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.text-icons > a {
+  color: black;
+}
+
+.header-picture-container {
+  position: relative;
+  overflow: hidden;
+  float: left;
+  max-height: calc(100svh - 5rem);
+  min-height: calc(100svh - 5rem);
+  background-color: black;
+  width: calc(50vw - 6rem);
+  margin-top: -2.5rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  background-image: url("img/header_small.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.header-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(2rem, 1.75rem + 2vw, 4rem);
+  color: white;
+  text-shadow:
+    0 0 0.25rem rgba(0, 0, 0, 1),
+    0 0 0.75rem rgba(0, 0, 0, 0.7),
+    0 0 1.5rem rgba(0, 0, 0, 0.4);
+  -webkit-text-stroke: 0.4px rgba(0, 0, 0, 0.4);
 }
 
 main {
@@ -42,8 +139,13 @@ footer {
 
 /*Tablet Sizes*/
 @media screen and (min-width: 576px) and (max-width: 991px) {
+
 }
 
 /*Desktop Sizes*/
 @media screen and (min-width: 992px) {
+  .header-picture-container {
+    background-image: url("img/header_big.jpg");
+  }
+
 }

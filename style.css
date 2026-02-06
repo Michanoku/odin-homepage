@@ -1,14 +1,15 @@
 /* General */
 @font-face {
-    font-family: 'robotoregular';
-    src:  url('font/Roboto-Regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "robotoregular";
+  src: url("font/Roboto-Regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 :root {
   font-size: 16px;
-  font-family: 'robotoregular', 'Courier New', Courier, monospace;
+  font-family: "robotoregular", "Courier New", Courier, monospace;
+  --accent: rgb(27, 163, 218);
 }
 
 * {
@@ -18,9 +19,18 @@
 }
 
 body {
-  width: 100%; 
+  width: 100%;
   overflow-x: hidden;
   min-height: 100vh;
+}
+
+.icon-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon-links > a {
+  color: black;
 }
 
 /* General Header */
@@ -52,36 +62,43 @@ header {
   top: 0;
   left: 0;
   z-index: -90;
-  background-color: rgb(27, 163, 218);
+  background-color: var(--accent);
   width: 200vw;
   transform-origin: left bottom;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  box-shadow:
+    rgba(0, 0, 0, 0.16) 0px 3px 6px,
+    rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .header-picture-container {
   position: relative;
   overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  box-shadow:
+    rgba(0, 0, 0, 0.16) 0px 3px 6px,
+    rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
-.header-picture-container picture,
-.header-picture-container img {
+.picture-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+picture,
+img {
   width: 100%;
   height: 100%;
   display: block;
 }
 
-.header-picture-container img {
+img {
   width: 100%;
   height: 100%;
-  max-width: none;      /* 🔑 important */
-  max-height: none;     /* 🔑 important */
+  max-width: none;
+  max-height: none;
   object-fit: cover;
   object-position: center;
-}
-
-.text-icons > a {
-  color: black;
 }
 
 /*Phone Header Sizes*/
@@ -100,7 +117,7 @@ header {
     max-height: 60svh;
     transform: rotate(-35deg);
   }
-  
+
   .header-picture-container {
     margin: 2rem;
     aspect-ratio: 1 / 1.56;
@@ -108,16 +125,12 @@ header {
 
   .text-body {
     padding: 1rem;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     line-height: 1.5;
   }
 
-  .text-content {
-    font-size: clamp(4rem, 3.75rem + 4vw, 5rem);
-  }
-
   .text-icons {
-    text-align: center;
+    justify-content: center;
     padding: 1rem;
   }
 
@@ -131,18 +144,18 @@ header {
 
   .section-title {
     font-size: 3rem;
+    text-align: center;
   }
 }
 
 /* Tablet Header Sizes */
 @media screen and (min-width: 576px) and (max-width: 991px) {
   .content-container {
-    min-width: calc(100% - 10rem);
-    max-width: calc(100% - 10rem);
-    margin-top: 8rem;
-    margin-bottom: 3rem;
+    margin: 8rem 5rem 3rem 5rem;
     background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    box-shadow:
+      rgba(0, 0, 0, 0.16) 0px 3px 6px,
+      rgba(0, 0, 0, 0.23) 0px 3px 6px;
   }
 
   .header-overlay {
@@ -160,7 +173,6 @@ header {
     margin-top: -5rem;
     margin-left: -2.5rem;
     margin-right: 1rem;
-    width: calc(50vw - 5rem);
     max-width: calc(50vw - 5rem);
     height: 55vw;
     max-height: 55vw;
@@ -172,7 +184,7 @@ header {
   }
 
   .text-body {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     text-align: start;
     line-height: 1.5;
     max-width: 66ch;
@@ -207,21 +219,19 @@ header {
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 }
 
 /*Desktop Header Sizes*/
 @media screen and (min-width: 992px) {
   .content-container {
-    margin-top: 5rem;
-    margin-bottom: 5rem;
     min-height: calc(100svh - 10rem);
-    max-height: calc(100svh - 10rem);
-    min-width: calc(100% - 6rem);
-    max-width: calc(100% - 6rem);
+    margin: 5rem 3rem;
     background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    box-shadow:
+      rgba(0, 0, 0, 0.16) 0px 3px 6px,
+      rgba(0, 0, 0, 0.23) 0px 3px 6px;
   }
 
   .header-name {
@@ -237,24 +247,24 @@ header {
 
   .header-picture-container {
     float: left;
-    max-height: calc(100svh - 5rem);
-    min-height: calc(100svh - 5rem);
-    width: calc(50vw - 6rem);
     margin-top: -2.5rem;
+    margin-bottom: -2.5rem;
+    height: calc(100svh - 5rem);
+    width: calc(50vw - 6rem);
   }
 
   .header-text {
     display: grid;
-    grid-template-rows: 1fr 2fr 1fr;
-    grid-template-areas: 'title' 'body' 'icons';
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "title" "body" "icons";
+    gap: 2rem;
     padding: 2rem 2rem;
     min-height: calc(100svh - 10rem);
-    max-height: calc(100svh - 10rem);
   }
 
   .text-body {
     grid-area: body;
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     text-align: start;
     line-height: 1.5;
     max-width: 66ch;
@@ -262,10 +272,8 @@ header {
 
   .text-icons {
     grid-area: icons;
-    display: flex;
     justify-content: end;
     align-items: center;
-    gap: 1rem;
   }
 
   .text-name {
@@ -277,12 +285,13 @@ header {
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 }
 
 main {
   margin-top: 2rem;
+  margin-bottom: 2rem;
   position: relative;
   width: 100%;
   overflow-x: hidden;
@@ -292,29 +301,12 @@ main {
 
 .project-card {
   display: grid;
-  width: 100%;
-  aspect-ratio: 0.8 / 1; 
+  aspect-ratio: 0.8 / 1;
   background-color: white;
   grid-template-rows: 1.5fr 1fr;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-}
-
-.project-image {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.project-image picture,
-.project-image img {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.project-image img {
-  object-fit: cover;
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .project-header {
@@ -329,57 +321,112 @@ main {
   font-size: 1.5rem;
 }
 
-.project-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.project-links > a {
-  color: black;
-}
-
 .project-body {
   padding: 0rem 2rem;
   line-height: 1.5;
   font-size: 1.125rem;
 }
 
+.main-content {
+  width: 100%;
+}
+
+.project-container {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+}
+
 /*Phone Main Sizes*/
 @media screen and (max-width: 575px) {
+  .main-content {
+    margin: 1rem;
+  }
 }
 
 /* Tablet Main Sizes */
 @media screen and (min-width: 576px) and (max-width: 991px) {
   .main-content {
-    min-width: calc(100% - 10rem);
-    max-width: calc(100% - 10rem);
-  }
-
-  .project-container {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
+    margin: 0rem 5rem;
   }
 }
 
 /*Desktop Main Sizes*/
 @media screen and (min-width: 992px) {
   .main-content {
-    min-width: calc(100% - 6rem);
-    max-width: calc(100% - 6rem);
-  }
-
-  .project-container {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
+    margin: 0rem 3rem;
   }
 }
 
 footer {
-  background-color: yellow;
+  background-color: var(--accent);
+  color: white;
+}
+
+.footer-text {
+  margin-top: 2rem;
+}
+
+.contact {
+  display: flex;
+  justify-content: start;
+  gap: 1rem;
+  align-items: center;
+}
+
+/*Phone Footer Sizes*/
+@media screen and (max-width: 575px) {
+  footer {
+    padding-top: 1rem;
+  }
+
+  .footer-info {
+    padding: 1rem;
+  }
+
+  .footer-title {
+    text-align: center;
+  }
+
+  .footer-text {
+    font-size: 1.125rem;
+  }
+
+  .contact > svg {
+    display: none;
+  }
+
+  .footer-text.icon-links {
+    justify-content: center;
+  }
+}
+
+/* Tablet Footer Sizes */
+@media screen and (min-width: 576px) and (max-width: 991px) {
+  footer {
+    padding: 3rem 2.5rem;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 5fr 4fr;
+    gap: 2rem;
+  }
+
+  .footer-text {
+    font-size: 1.25rem;
+  }
+}
+
+/*Desktop Footer Sizes*/
+@media screen and (min-width: 992px) {
+  footer {
+    padding: 2.5rem 3rem;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 2.5rem;
+  }
+  .footer-text {
+    font-size: 1.5rem;
+  }
 }

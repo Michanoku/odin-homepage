@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Web developer and translator based in Japan, featuring personal projects, practical solutions, and a love for clean, modern web design.">
   <link rel="stylesheet" href="style.css">
   <title>Homepage</title>
 </head>
@@ -28,9 +29,9 @@
       <div class="header-picture-container">
         <h1 class="header-name">Michael Werker</h1>
         <picture>
-          <source media="(min-width: 576px)" srcset="img/header_big.jpg">
-          <source media="(max-width: 575px)" srcset="img/header_small.jpg">
-          <img src="img/header_big.jpg" alt="">
+          <source media="(min-width: 576px)" srcset="img/header_big.webp">
+          <source media="(max-width: 575px)" srcset="img/header_small.webp">
+          <img src="img/header_big.webp" alt="" fetchpriority="high" loading="eager">
         </picture>
       </div>
       <div class="header-text">
@@ -40,9 +41,9 @@
           I'm a Germany-born aspiring web developer living in Japan, where I juggle languages, code, and the occasional CSS problem. I build clean, practical websites, teach English, and enjoy turning confusing ideas into things that actually work. When I'm not learning something new, I'm probably thinking about how to make the next project just a little bit better.
         </div>
         <div class="text-icons icon-links">
-          <a href="https://github.com/Michanoku"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-github"></use></svg></a>
-          <a href="https://www.linkedin.com/in/michael-werker-6a4903131/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-linkedin"></use></svg></a>
-          <a href="https://www.michinokuweb.com"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-external-link"></use></svg></a>
+          <a href="https://github.com/Michanoku" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-github"></use></svg></a>
+          <a href="https://www.linkedin.com/in/michael-werker-6a4903131/" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-linkedin"></use></svg></a>
+          <a href="https://www.michinokuweb.com" aria-label="MichinokuWeb"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-external-link"></use></svg></a>
         </div>
       </div>
     </div>
@@ -110,7 +111,7 @@
           function iconLink(href, iconId, label) {
             const a = document.createElement("a");
             a.href = href;
-            a.rel = "noopener noreferrer";
+            a.setAttribute("aria-label", label);
 
             const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
             svg.setAttribute("width", "24");
@@ -236,17 +237,17 @@
         </div>
       </div>
       <div class="footer-text icon-links">
-        <a href="https://github.com/Michanoku"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-github"></use></svg></a>
-        <a href="https://www.linkedin.com/in/michael-werker-6a4903131/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-linkedin"></use></svg></a>
-        <a href="https://www.michinokuweb.com"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-external-link"></use></svg></a>
+        <a href="https://github.com/Michanoku" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-github"></use></svg></a>
+        <a href="https://www.linkedin.com/in/michael-werker-6a4903131/" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-linkedin"></use></svg></a>
+        <a href="https://www.michinokuweb.com" aria-label="MichinokuWeb"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-external-link"></use></svg></a>
       </div>
     </div>
     <div class="picture-container">
       <picture>
-        <source media="(min-width: 992px)" srcset="img/footer_big.jpg">
-        <source media="(min-width: 576px) and (max-width: 991px)" srcset="img/footer_medium.jpg">
-        <source media="(max-width: 575px)" srcset="img/footer_small.jpg">
-        <img src="img/footer_big.jpg" alt="">
+        <source media="(min-width: 992px)" srcset="img/footer_big.webp">
+        <source media="(min-width: 576px) and (max-width: 991px)" srcset="img/footer_medium.webp">
+        <source media="(max-width: 575px)" srcset="img/footer_small.webp">
+        <img src="img/footer_big.webp" alt="" loading="lazy">
       </picture>
     </div>
   </footer>

@@ -4,12 +4,13 @@
   src: url("font/Roboto-Regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 :root {
   font-size: 16px;
   font-family: "robotoregular", "Courier New", Courier, monospace;
-  --accent: rgb(27, 163, 218);
+  --accent: #0891b2ff;
 }
 
 * {
